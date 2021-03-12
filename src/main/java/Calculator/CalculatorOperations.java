@@ -1,7 +1,10 @@
 package Calculator;
 
 import java.io.IOException;
-import org.apache.log4j.Logger;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,14 +12,18 @@ import java.util.Scanner;
 
 public class CalculatorOperations {
 
-    private static final Logger logger=Logger.getLogger(CalculatorOperations.class);
+    public CalculatorOperations(){    // void constructor
+
+    }
+
+    private static final Logger logger= LogManager.getLogger(CalculatorOperations.class);
 
     //SquareRoot
-    public static double findSquareRoot(double x) {
+    public  double findSquareRoot(double x) {
         logger.info("Finding squareroot of Number "+ x);
         double z = 0.0;
         try {
-             z=Math.sqrt(x);
+             z=Math.sqrt(Math.abs(x));
             logger.info("Result of square root(log) is " + z);
         } catch (IllegalArgumentException e) {
             System.out.println("Wrong Parameters Passed");
@@ -28,12 +35,12 @@ public class CalculatorOperations {
 
     //Factorial
 
-    public static double findFactorial(double x) {
+    public  double findFactorial(double x) {
         logger.info("Finding factorial of number "+x);
         double z = 1,i;
         try {
 
-            for (i=2; i<=x; i++)
+            for (i=2; i<=Math.abs(x); i++)
                     z *= i;
 
             logger.info("Result of Factorial(log) is " + z);
@@ -45,7 +52,7 @@ public class CalculatorOperations {
 
     //multiply
 
-    public static double findLog(double x) {
+    public  double findLog(double x) {
         logger.info("Finding Log of number "+x);
         double z = 0.0;
         try {
@@ -60,7 +67,7 @@ public class CalculatorOperations {
 
     //divide
 
-    public static double findPower(double x) {
+    public  double findPower(double x) {
         logger.info("Finding Power of number "+x);
         double z = 0.0;
         try {
@@ -75,6 +82,7 @@ public class CalculatorOperations {
 
     public static void main(String[] args) {
 
+        CalculatorOperations co=new CalculatorOperations();
         int choice;
         double num1 = 0;
         Scanner sc=new Scanner(System.in);
@@ -114,16 +122,16 @@ public class CalculatorOperations {
             switch (choice)
             {
                 case 1:
-                    System.out.println("Result of SquareRoot is "+findSquareRoot(num1));
+                    System.out.println("Result of SquareRoot is "+co.findSquareRoot(num1));
                     break;
                 case 2:
-                    System.out.println("Result of Factorial is "+findFactorial(num1));
+                    System.out.println("Result of Factorial is "+co.findFactorial(num1));
                     break;
                 case 3:
-                    System.out.println("Result of Natural Log is"+findLog(num1));
+                    System.out.println("Result of Natural Log is"+co.findLog(num1));
                     break;
                 case 4:
-                    System.out.println("Result of Power Function is"+findPower(num1));
+                    System.out.println("Result of Power Function is"+co.findPower(num1));
                     break;
                 default:
                     System.out.println("System Exiting");
