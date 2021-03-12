@@ -11,13 +11,13 @@ public class CalculatorOperations {
 
     private static final Logger logger=Logger.getLogger(CalculatorOperations.class);
 
-    //add
-    public static double addTwoNumbers(double x, double y) {
-        logger.info("Adding two numbers " + x + " and " + y);
+    //SquareRoot
+    public static double findSquareRoot(double x) {
+        logger.info("Finding squareroot of Number "+ x);
         double z = 0.0;
         try {
-             z = x + y;
-            logger.info("Result of addition(log) is " + z);
+             z=Math.sqrt(x);
+            logger.info("Result of square root(log) is " + z);
         } catch (IllegalArgumentException e) {
             System.out.println("Wrong Parameters Passed");
         }
@@ -26,14 +26,17 @@ public class CalculatorOperations {
     }
 
 
-    //
+    //Factorial
 
-    public static double substractTwoNumbers(double x, double y) {
-        logger.info("Substracting two numbers " + x + " and " + y);
-        double z = 0.0;
+    public static double findFactorial(double x) {
+        logger.info("Finding factorial of number "+x);
+        double z = 1,i;
         try {
-            z = x - y;
-            logger.info("Result of Substraction(log) is " + z);
+
+            for (i=2; i<=x; i++)
+                    z *= i;
+
+            logger.info("Result of Factorial(log) is " + z);
         } catch (IllegalArgumentException e) {
             System.out.println("Wrong Parameters Passed");
         }
@@ -42,12 +45,12 @@ public class CalculatorOperations {
 
     //multiply
 
-    public static double multiplyTwoNumbers(double x, double y) {
-        logger.info("Multiplying two numbers " + x + " and " + y);
+    public static double findLog(double x) {
+        logger.info("Finding Log of number "+x);
         double z = 0.0;
         try {
-            z = x*y;
-            logger.info("Result of Multiplication(log) is " + z);
+            z = Math.log(x);
+            logger.info("Result of Natural Log is " + z);
         } catch (IllegalArgumentException e) {
             System.out.println("Wrong Parameters Passed");
         }
@@ -57,26 +60,14 @@ public class CalculatorOperations {
 
     //divide
 
-    public static double divideTwoNumbers(double x, double y) {
-        double z = 0;
+    public static double findPower(double x) {
+        logger.info("Finding Power of number "+x);
+        double z = 0.0;
         try {
-            logger.info("Dividing two numbers " + x + " and " + y);
-            if (x == 0 && y == 0) {
-                z = Double.NaN;
-                throw new ArithmeticException("Case of NaN 0.0/0.0");
-            } else if (x > 0 && y == 0) {
-                z = Double.POSITIVE_INFINITY;
-                throw new ArithmeticException("Case of Positive Infinity 1.0/0.0");
-            } else if (x <= -1 && y == 0) {
-                z = Double.NEGATIVE_INFINITY;
-                throw new ArithmeticException("Case of Negative Infinity -1.0/0.0");
-            } else {
-                z = x / y;
-            }
-        } catch (ArithmeticException error) {
-            logger.error("Number cannot be divided by zero(log) " + error.getLocalizedMessage());
-        } finally {
-            logger.info("Result of dividing(log) is " + z);
+            z = Math.pow(x,4);
+            logger.info("Result of Power Function is " + z);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Wrong Parameters Passed");
         }
         return z;
     }
@@ -85,16 +76,16 @@ public class CalculatorOperations {
     public static void main(String[] args) {
 
         int choice;
-        double num1 = 0,num2=0;
+        double num1 = 0;
         Scanner sc=new Scanner(System.in);
 
         while(true)
         {
             System.out.println("------Calculator Operation's MENU------");
-            System.out.println("1. Addition \n"+
-                    "2. Subtraction \n"+
-                    "3. Multiplication \n"+
-                    "4. Division \n"+
+            System.out.println("1. Find SquareRoot \n"+
+                    "2. Find Factorial \n"+
+                    "3. Find Natural Log \n"+
+                    "4. Find Power of Number \n"+
                     "5. Exit \n");
             System.out.println("Please enter your choice :");
             try{
@@ -108,10 +99,9 @@ public class CalculatorOperations {
 
             try{
                 if(choice<5 && choice>0) {
-                    System.out.print("Enter the first number : ");
+                    System.out.print("Enter the  number : ");
                     num1=sc.nextDouble();
-                    System.out.print("Enter the second number : ");
-                    num2=sc.nextDouble();
+
                 }
 
             }
@@ -124,16 +114,16 @@ public class CalculatorOperations {
             switch (choice)
             {
                 case 1:
-                    System.out.println("Result of Addition is "+addTwoNumbers(num1,num2));
+                    System.out.println("Result of SquareRoot is "+findSquareRoot(num1));
                     break;
                 case 2:
-                    System.out.println("Result of Substraction is "+substractTwoNumbers(num1,num2));
+                    System.out.println("Result of Factorial is "+findFactorial(num1));
                     break;
                 case 3:
-                    System.out.println("Result of Multiplication is"+multiplyTwoNumbers(num1,num2));
+                    System.out.println("Result of Natural Log is"+findLog(num1));
                     break;
                 case 4:
-                    System.out.println("Result of Division is"+divideTwoNumbers(num1,num2));
+                    System.out.println("Result of Power Function is"+findPower(num1));
                     break;
                 default:
                     System.out.println("System Exiting");
