@@ -1,0 +1,8 @@
+---
+- name: Pull docker image Devops-Calculator
+  hosts: all
+  tasks:
+    - name: Pull junit devops image
+      docker_image:
+        name: grv2docker/devops_calculator
+        source: pull
