@@ -4,7 +4,11 @@
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{dd/MMM/yyy:HH:mm:ss SSS} [%F] [%level] %logger{36} %msg%n"/>
         </Console>
+<<<<<<< HEAD:src/main/resources/log4j2.xml
         <File name="FileAppender" fileName="calculator.log" immediateFlush="true" append="true">
+=======
+        <File name="FileAppender" fileName="calculator.log" immediateFlush="true" append="false">
+>>>>>>> e04937f00d7f5c5b2c403ae51cb81332c5b68e59:src/main/resources/log4j.xml
             <PatternLayout pattern="%d{dd/MMM/yyy:HH:mm:ss SSS} [%F] [%level] %logger{36} %msg%n"/>
         </File>
     </Appenders>
