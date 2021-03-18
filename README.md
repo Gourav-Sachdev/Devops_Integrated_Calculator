@@ -1,7 +1,8 @@
 # Devops_Integrated_Calculator
 
-Tech stack-Java/Maven
-Tools Used-  Git/Jenkins/Docker/Ansible
-This is a simple calculator app to made to learn concepts of DevOps.
-Complete development cycle is automated using devops tools
+This is a simple calculator app to made to learn concepts of DevOps. <br />
+Complete development cycle is automated using devops tools. <br />
+
+Tech stack-Java/Maven. <br />
+Tools Used-  Git/Jenkins/Docker/Ansible. <br />
 
