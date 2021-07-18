@@ -5,10 +5,10 @@ Complete development cycle is automated using devops tools. <br />
 
 The project uses the devops tools like Jenkins,Ansible,Docker,ELK stack.The Calculator perform following task  <br />
 
-Power
-Logarithm
-Factorial
-Square Root
+Power  <br />
+Logarithm <br />
+Factorial <br />
+Square Root <br />
 
 Tech stack-Java/Maven. <br />
 Tools Used-  Git/Jenkins/Docker/Ansible. <br />
