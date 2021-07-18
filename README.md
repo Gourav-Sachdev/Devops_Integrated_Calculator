@@ -3,6 +3,13 @@
 This is a simple calculator app to made to learn concepts of DevOps. <br />
 Complete development cycle is automated using devops tools. <br />
 
+The project uses the devops tools like Jenkins,Ansible,Docker,ELK stack.The Calculator perform following task  <br />
+
+Power
+Logarithm
+Factorial
+Square Root
+
 Tech stack-Java/Maven. <br />
 Tools Used-  Git/Jenkins/Docker/Ansible. <br />
 
